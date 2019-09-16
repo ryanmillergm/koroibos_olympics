@@ -11,6 +11,8 @@ RSpec.describe Olympian, type: :model do
 
   describe 'relationships' do
     it { should have_many(:games).through :olympian_games }
-    it { should have_many(:events).through :olympians_events }
+    it { should have_many(:events).through :olympian_events }
   end
+
+
 end

@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_222518) do
+ActiveRecord::Schema.define(version: 2019_09_16_233832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.bigint "sports_id"
+    t.bigint "sport_id"
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "game_sports", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sports_id"], name: "index_events_on_sports_id"
+    t.index ["game_id"], name: "index_game_sports_on_game_id"
+    t.index ["sport_id"], name: "index_game_sports_on_sport_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -29,22 +36,22 @@ ActiveRecord::Schema.define(version: 2019_09_16_222518) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "games_sports", force: :cascade do |t|
-    t.bigint "games_id"
-    t.bigint "sports_id"
+  create_table "olympian_events", force: :cascade do |t|
+    t.bigint "olympian_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["games_id"], name: "index_games_sports_on_games_id"
-    t.index ["sports_id"], name: "index_games_sports_on_sports_id"
+    t.index ["event_id"], name: "index_olympian_events_on_event_id"
+    t.index ["olympian_id"], name: "index_olympian_events_on_olympian_id"
   end
 
   create_table "olympian_games", force: :cascade do |t|
-    t.bigint "olympians_id"
-    t.bigint "games_id"
+    t.bigint "game_id"
+    t.bigint "olympian_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["games_id"], name: "index_olympian_games_on_games_id"
-    t.index ["olympians_id"], name: "index_olympian_games_on_olympians_id"
+    t.index ["game_id"], name: "index_olympian_games_on_game_id"
+    t.index ["olympian_id"], name: "index_olympian_games_on_olympian_id"
   end
 
   create_table "olympians", force: :cascade do |t|
@@ -58,27 +65,17 @@ ActiveRecord::Schema.define(version: 2019_09_16_222518) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "olympians_events", force: :cascade do |t|
-    t.string "medals"
-    t.bigint "events_id"
-    t.bigint "olympians_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_olympians_events_on_events_id"
-    t.index ["olympians_id"], name: "index_olympians_events_on_olympians_id"
-  end
-
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "events", "sports", column: "sports_id"
-  add_foreign_key "games_sports", "games", column: "games_id"
-  add_foreign_key "games_sports", "sports", column: "sports_id"
-  add_foreign_key "olympian_games", "games", column: "games_id"
-  add_foreign_key "olympian_games", "olympians", column: "olympians_id"
-  add_foreign_key "olympians_events", "events", column: "events_id"
-  add_foreign_key "olympians_events", "olympians", column: "olympians_id"
+  add_foreign_key "events", "sports"
+  add_foreign_key "game_sports", "games"
+  add_foreign_key "game_sports", "sports"
+  add_foreign_key "olympian_events", "events"
+  add_foreign_key "olympian_events", "olympians"
+  add_foreign_key "olympian_games", "games"
+  add_foreign_key "olympian_games", "olympians"
 end
