@@ -1,13 +1,11 @@
-# Quantified Self
-This REST API has several endpoints for basic CRUD functionality of **foods** and **meals**. Food and meals are joined with **mealfood** with a many to many relationship. All responses are JSON.
+# Koroibos Olympics
+This REST API has several endpoints for basic CRUD functionality of **olympians** and **events**. All responses are JSON.
 
-See the recipe micro-service repo [here](https://github.com/chakeresa/recipe_microservice). It is deployed at https://recipe-microservice.herokuapp.com/.
+The app is deployed at https://koroibos-olympics.herokuapp.com/.
 
-The app is deployed at https://nutritionaltracker.herokuapp.com/.
+This project was part of [Turing School of Software & Design](https://turing.io)'s Back End Engineering program (Mod 4). See the project spec [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md). It was completed in 48 hours days by [Ryan Miller](https://github.com/ryanmillergm).
 
-This project was part of [Turing School of Software & Design](https://turing.io)'s Back End Engineering program (Mod 4). See the project spec [here](https://backend.turing.io/module4/projects/quantified_self/qs_server_side). It was completed in 10 days by [Alexandra Chakeres](https://github.com/chakeresa) and [Ryan Miller](https://github.com/ryanmillergm).
-
-View the project board at https://github.com/ryanmillergm/quantified_self/projects/2.
+View the project board at https://github.com/ryanmillergm/koroibos_olympics/projects/1.
 
 ## Schema
 ![schema](./public/images/schema.png)
@@ -24,7 +22,7 @@ View the project board at https://github.com/ryanmillergm/quantified_self/projec
 
 ## Local Setup
  - `$ git clone https://gitlab.com/ryanmillergm/koroibos_olympics.git`
- - `$ cd motorcycle_ride`
+ - `$ cd koroibos_olympics`
  - `$ bundle exec install`
  - `$ bundle exec rails db:create`
  - `$ bundle exec rails db:migrate`
