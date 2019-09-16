@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_222320) do
+ActiveRecord::Schema.define(version: 2019_09_16_222518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2019_09_16_222320) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "olympians_events", force: :cascade do |t|
+    t.string "medals"
+    t.bigint "events_id"
+    t.bigint "olympians_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["events_id"], name: "index_olympians_events_on_events_id"
+    t.index ["olympians_id"], name: "index_olympians_events_on_olympians_id"
+  end
+
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -69,4 +79,6 @@ ActiveRecord::Schema.define(version: 2019_09_16_222320) do
   add_foreign_key "games_sports", "sports", column: "sports_id"
   add_foreign_key "olympian_games", "games", column: "games_id"
   add_foreign_key "olympian_games", "olympians", column: "olympians_id"
+  add_foreign_key "olympians_events", "events", column: "events_id"
+  add_foreign_key "olympians_events", "olympians", column: "olympians_id"
 end
