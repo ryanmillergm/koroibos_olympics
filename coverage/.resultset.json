@@ -235,6 +235,79 @@
         1,
         null
       ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/game_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/game.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/game_sport_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/game_sport.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/olympian_event_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/olympian_event.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/olympian_games_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/olympian_game.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/olympian_spec.rb": [
         1,
         null,
@@ -269,35 +342,31 @@
         1,
         null
       ],
+      "/Users/ryan/turing/4module/projects/koroibos_olympics/spec/models/sport_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
       "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/sport.rb": [
         1,
         1,
         null,
         1,
         1,
-        null
-      ],
-      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/olympian_event.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/olympian_game.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/ryan/turing/4module/projects/koroibos_olympics/app/models/game.rb": [
-        1,
-        1,
-        null,
-        1,
         1,
         null
       ]
     },
-    "timestamp": 1568677519
+    "timestamp": 1568678263
   }
 }
