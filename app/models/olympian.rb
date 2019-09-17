@@ -28,4 +28,16 @@ class Olympian < ApplicationRecord
     Olympian.where(age: maximum(:age)).first
   end
 
+  def self.total_competing_olympians
+    Olympian.count
+  end
+
+  def self.average_weight(gender)
+    Olympian.where(sex: gender).average(:weight).to_f.round(1)
+  end
+
+  def self.average_age
+    Olympian.average(:age).to_f.round(1)
+  end
+
 end
