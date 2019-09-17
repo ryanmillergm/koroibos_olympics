@@ -1,5 +1,5 @@
 # Koroibos Olympics
-This REST API has several endpoints for basic CRUD functionality of **olympians** and **events**. All responses are JSON.
+This application allows users to get information about the olympics and statistics. All responses are JSON.
 
 The app is deployed at https://koroibos-olympics.herokuapp.com/.
 
