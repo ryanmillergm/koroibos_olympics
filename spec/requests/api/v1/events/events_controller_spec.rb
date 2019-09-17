@@ -15,7 +15,7 @@ describe "events API" do
     @event8 = Event.create(name: "Cycling Women's Road Race, Individual", sport_id: @sport3.id)
   end
 
-  it "sends a list of olympians" do
+  it "sends a list of sports and their events" do
 
     get '/api/v1/events'
 
@@ -23,24 +23,9 @@ describe "events API" do
 
     events = JSON.parse(response.body)
 
-    binding.pry
-    # attributes = ["total_competing_olympians", "average_weight", "average_age"]
-    # expected = {
-    #             "female_olympians" => 125.0,
-    #             "male_olympians" => 183.5,
-    #             "unit" => "kg",
-    #           }
-    # weight_keys = ["unit", "male_olympians", "female_olympians"]
-
-    expect(events["olympian_stats"].keys).to eq(attributes)
-    # expect(olympian_stats["olympian_stats"]["total_competing_olympians"]).to be_a(Integer)
-    # expect(olympian_stats["olympian_stats"]["average_weight"]).to be_a(Hash)
-    # expect(olympian_stats["olympian_stats"]["average_weight"].keys).to eq(weight_keys)
-    # expect(olympian_stats["olympian_stats"]["average_weight"]["male_olympians"]).to be_a(Float)
-    # expect(olympian_stats["olympian_stats"]["average_age"]).to be_a(Float)
-    # expect(olympian_stats["olympian_stats"]["total_competing_olympians"]).to equal(3)
-    # expect(olympian_stats["olympian_stats"]["average_weight"]).to eq(expected)
-    # expect(olympian_stats["olympian_stats"]["average_age"]).to equal(26.3)
-    # Event.where(sport_id: 3)
+    expect(events["events"].first.keys).to eq(["sport", "events"])
+    expect(events["events"].first["sport"]).to eq("Gymnastics")
+    expect(events["events"].first["events"]).to be_a(Array)
+    expect(events["events"].first["events"].first).to eq("Gymnastics Men's Individual All-Around")
   end
 end
