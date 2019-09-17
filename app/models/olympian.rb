@@ -20,4 +20,8 @@ class Olympian < ApplicationRecord
     Sport.joins(:olympians).where(olympians: { id: id }).distinct.pluck(:name)
   end
 
+  def self.youngest
+    Olympian.where(age: minimum(:age)).first
+  end
+
 end
