@@ -32,7 +32,6 @@ View the project board at https://github.com/ryanmillergm/koroibos_olympics/proj
  - `$ bundle exec install`
  - `$ bundle exec rails db:create`
  - `$ bundle exec rails db:migrate`
- - `$ bundle exec rails db:seed`
 
 ## Data Importing
   `rake import:olympians`
@@ -181,7 +180,6 @@ Example response:
 Request:
 GET api/v1/events/:id/medalists
 Accept: application/json
-```
 Example response:
 ```
 //Response Format
