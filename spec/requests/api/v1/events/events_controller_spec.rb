@@ -51,9 +51,12 @@ describe "events API" do
     expect(response).to be_successful
 
     medalists = JSON.parse(response.body)
+    attributes = ["name", "team", "age", "medal"]
 
     expect(medalists["medalists"]).to be_a(Array)
     expect(medalists["medalists"].first).to be_a(Hash)
     expect(medalists["medalists"].first).to be_a(Hash)
+    expect(medalists["event"]).to eq("Gymnastics Men's Individual All-Around")
+    expect(medalists["medalists"].first.keys).to eq(attributes)
   end
 end
