@@ -26,7 +26,7 @@ namespace :import do
         event = Event.find_or_create_by(name: row[:event], sport_id: sport.id)
 
         OlympianGame.create(olympian_id: olympian.id, game_id: game.id)
-        GameSport.create(game_id: game.id, sport_id: sport.id)
+        GameSport.create(game_id: game.id, sport_id: sport.id, olympian_id: olympian.id)
         OlympianEvent.create(olympian_id: olympian.id, event_id: event.id, medal: row[:medal])
       end
       p "You have added all your data"

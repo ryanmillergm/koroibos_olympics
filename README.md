@@ -27,9 +27,9 @@ View the project board at https://github.com/ryanmillergm/koroibos_olympics/proj
  - `$ bundle exec rails db:create`
  - `$ bundle exec rails db:migrate`
  - `$ bundle exec rails db:seed`
- 
-## Data Importing
 
+## Data Importing
+  `rake import:olympians`
 
 ## Running the Server Locally
  - `$ rails s`
