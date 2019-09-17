@@ -46,13 +46,12 @@ describe "events API" do
 
   it "sends a list of medalists for a specific event" do
 
-    get '/api/v1/events/:id/medalists'
+    get "/api/v1/events/#{@event1.id}/medalists"
 
     expect(response).to be_successful
 
     medalists = JSON.parse(response.body)
 
-    binding.pry
     expect(medalists["medalists"]).to be_a(Array)
     expect(medalists["medalists"].first).to be_a(Hash)
     expect(medalists["medalists"].first).to be_a(Hash)
