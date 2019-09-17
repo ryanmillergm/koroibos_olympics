@@ -40,4 +40,21 @@ class Olympian < ApplicationRecord
     Olympian.average(:age).to_f.round(1)
   end
 
+  def self.find_medalists(id)
+    response = {}
+    response["event"] = Event.find(id).name
+    medalists = Olympian.joins(:olympian_events).where(olympian_events: { event_id: id }).joins(:events).where(events: { id: id })
+    events_medalists = medalists.map do |medalist|
+      response["medalists"] =
+        {
+          "name": medalist.name,
+          "team": medalist.team,
+          "age": medalist.age,
+          "medal": OlympianEvent.where(olympian_id: medalist.id, event_id: id).pluck(:medal).first
+        }
+    end
+    response["medalists"] = events_medalists
+    response
+  end
+
 end
