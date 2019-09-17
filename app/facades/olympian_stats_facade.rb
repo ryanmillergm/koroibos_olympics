@@ -1,8 +1,7 @@
 class OlympianStatsFacade
   def statistics
-    binding.pry
     response = {}
-    reponse["olympian_stats"] = {
+    response["olympian_stats"] = {
       "total_competing_olympians": Olympian.total_competing_olympians,
       "average_weight": {
         "unit": "kg",
@@ -11,5 +10,6 @@ class OlympianStatsFacade
       },
       "average_age": Olympian.average_age
     }
+    response
   end
 end

@@ -28,21 +28,22 @@ describe "olympian_stats API" do
 
     olympian_stats = JSON.parse(response.body)
 
-    binding.pry
-    attributes = ["name", "team", "age", "sport", "total_medals_won"]
-    expect = {
-                "unit": "kg",
-                "male_olympians": 75.4,
-                "female_olympians": 70.2
+    attributes = ["total_competing_olympians", "average_weight", "average_age"]
+    expected = {
+                "female_olympians" => 125.0,
+                "male_olympians" => 183.5,
+                "unit" => "kg",
               }
+    weight_keys = ["unit", "male_olympians", "female_olympians"]
 
-    expect(olympian_stats.count).to eq(3)
-    expect(olympian_stats.keys).to eq(attributes)
-    expect(olympian_stats["total_competing_olympians"]).to be_a(Integer)
-    expect(olympian_stats["average_weight"]).to be_a(hash)
-    expect(olympian_stats["average_age"]).to be_a(Integer)
-    expect(olympian_stats["total_competing_olympians"]).to equal(3)
-    expect(olympian_stats["average_weight"]).to equal(expected)
-    expect(olympian_stats["average_age"]).to equal(28)
+    expect(olympian_stats["olympian_stats"].keys).to eq(attributes)
+    expect(olympian_stats["olympian_stats"]["total_competing_olympians"]).to be_a(Integer)
+    expect(olympian_stats["olympian_stats"]["average_weight"]).to be_a(Hash)
+    expect(olympian_stats["olympian_stats"]["average_weight"].keys).to eq(weight_keys)
+    expect(olympian_stats["olympian_stats"]["average_weight"]["male_olympians"]).to be_a(Float)
+    expect(olympian_stats["olympian_stats"]["average_age"]).to be_a(Float)
+    expect(olympian_stats["olympian_stats"]["total_competing_olympians"]).to equal(3)
+    expect(olympian_stats["olympian_stats"]["average_weight"]).to eq(expected)
+    expect(olympian_stats["olympian_stats"]["average_age"]).to equal(26.3)
   end
 end
