@@ -19,6 +19,7 @@ describe "olympian API" do
     gs3 = GameSport.create(game_id: game1.id, sport_id: sport1.id, olympian_id: olympian3.id)
     gs4 = GameSport.create(game_id: game1.id, sport_id: sport2.id, olympian_id: olympian3.id)
   end
+
   it "sends a list of olympians" do
 
     get '/api/v1/olympians'
@@ -26,15 +27,14 @@ describe "olympian API" do
     expect(response).to be_successful
 
     olympians = JSON.parse(response.body)
-    attributes = ["id", "name", "team", "age", "sport", "total_medals_won"]
-    binding.pry
-    expect(olympians["data"].count).to eq(3)
-    expect(olympians["data"].first["attributes"].keys).to eq(attributes)
-    expect(olympians["data"].first["attributes"]["name"]).to be_a(String)
-    expect(olympians["data"].first["attributes"]["team"]).to be_a(String)
-    expect(olympians["data"].first["attributes"]["age"]).to be_a(Integer)
-    expect(olympians["data"].first["attributes"]["sex"]).to be_a(String)
-    expect(olympians["data"].first["attributes"]["height"]).to be_a(Integer)
-    expect(olympians["data"].first["attributes"]["weight"]).to be_a(Integer)
+    attributes = ["name", "team", "age", "sport", "total_medals_won"]
+
+    expect(olympians.count).to eq(3)
+    expect(olympians.first.keys).to eq(attributes)
+    expect(olympians.first["name"]).to be_a(String)
+    expect(olympians.first["team"]).to be_a(String)
+    expect(olympians.first["age"]).to be_a(Integer)
+    expect(olympians.first["sport"]).to be_a(Array)
+    expect(olympians.first["total_medals_won"]).to be_a(Integer)
   end
 end
