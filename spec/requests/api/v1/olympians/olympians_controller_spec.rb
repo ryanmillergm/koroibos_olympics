@@ -59,4 +59,26 @@ describe "olympian API" do
     expect(olympian["sport"]).to be_a(Array)
     expect(olympian["total_medals_won"]).to be_a(Integer)
   end
+
+  it "gets the oldest olympian" do
+
+    headers = {
+      content_type: "application/json",
+      accept: "application/json"
+    }
+
+    get '/api/v1/olympians?age=oldest', headers: headers
+
+    expect(response).to be_successful
+
+    olympian = JSON.parse(response.body)
+    attributes = ["name", "team", "age", "sport", "total_medals_won"]
+
+    expect(olympian.keys).to eq(attributes)
+    expect(olympian["name"]).to be_a(String)
+    expect(olympian["team"]).to be_a(String)
+    expect(olympian["age"]).to be_a(Integer)
+    expect(olympian["sport"]).to be_a(Array)
+    expect(olympian["total_medals_won"]).to be_a(Integer)
+  end
 end
