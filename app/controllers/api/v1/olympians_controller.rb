@@ -5,6 +5,9 @@ class Api::V1::OlympiansController < ApplicationController
     elsif
       age_params[:age] == "youngest"
       render json: Olympian.youngest
+    elsif
+      age_params[:age] == "oldest"
+      render json: Olympian.oldest
     end
   end
 
