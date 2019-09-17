@@ -18,7 +18,13 @@ View the project board at https://github.com/ryanmillergm/koroibos_olympics/proj
  - Testing: RSpec
 
 ## Other Packages
- - None
+ - `gem 'active_model_serializers'`
+ - `gem 'rspec-rails'`
+ - `gem 'capybara'`
+ - `gem 'launchy'`
+ - `gem 'shoulda-matchers'`
+ - `gem 'pry'`
+ - `gem 'simplecov'`
 
 ## Local Setup
  - `$ git clone https://gitlab.com/ryanmillergm/koroibos_olympics.git`
