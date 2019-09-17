@@ -4,4 +4,5 @@ class Sport < ApplicationRecord
   has_many :game_sports
   has_many :games, through: :game_sports
   has_many :events
+  has_many :olympians, through: :game_sports
 end

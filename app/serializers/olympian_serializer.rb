@@ -1,11 +1,12 @@
-class OlympianSerializer
+class OlympianSerializer < ActiveModel::Serializer
   include FastJsonapi::ObjectSerializer
   attributes :id,
              :name,
              :team,
              :age,
-             :sex,
-             :height,
-             :weight
+             :sport,
+             :total_medals_won
+
+    Olympian
 
 end
