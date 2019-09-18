@@ -21,49 +21,26 @@ class Olympian < ApplicationRecord
   end
 
   def self.youngest
-    Olympian.where(age: minimum(:age)).first
+    where(age: minimum(:age)).first
   end
 
   def self.oldest
-    Olympian.where(age: maximum(:age)).first
+    where(age: maximum(:age)).first
   end
 
   def self.total_competing_olympians
-    Olympian.count
+    count
   end
 
   def self.average_weight(gender)
-    Olympian.where(sex: gender).average(:weight).to_f.round(1)
+    where(sex: gender).average(:weight).to_f.round(1)
   end
 
   def self.average_age
-    Olympian.average(:age).to_f.round(1)
+    average(:age).to_f.round(1)
   end
 
   def self.find_medalists(id)
-    response = {}
-    response["event"] = Event.find(id).name
-    medalists = Olympian.joins(:olympian_events).where(olympian_events: { event_id: id, medal: ["Gold","Silver","Bronze"] }).joins(:events).where(events: { id: id })
-    if medalists == []
-      return "There were no medalists for that event."
-    else
-      events_medalists = medalists.map do |medalist|
-        response["medalists"] =
-          {
-            "name": medalist.name,
-            "team": medalist.team,
-            "age": medalist.age,
-            "medal": OlympianEvent.where(olympian_id: medalist.id, event_id: id).pluck(:medal).first
-          }
-      end
-    end
-    response["medalists"] = events_medalists
-    response
-  end
-
-  private
-
-  def method_name
-
+    Olympian.joins(:olympian_events).where(olympian_events: { event_id: id, medal: ["Gold","Silver","Bronze"] }).joins(:events).where(events: { id: id })
   end
 end
