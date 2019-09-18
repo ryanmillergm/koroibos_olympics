@@ -8,6 +8,9 @@ class Api::V1::OlympiansController < ApplicationController
     elsif
       age_params[:age] == "oldest"
       render json: Olympian.oldest
+    else
+      message = "You must pick either 'youngest' or 'oldest'"
+      render json: message
     end
   end
 

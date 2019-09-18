@@ -92,4 +92,20 @@ describe "olympian API" do
     expect(olympian["sport"]).to eq(@olympian2.sport)
     expect(olympian["total_medals_won"]).to eq(@olympian2.total_medals_won)
   end
+
+  it "returns message that parameters must be either youngest or oldest" do
+
+    headers = {
+      content_type: "application/json",
+      accept: "application/json"
+    }
+
+    get '/api/v1/olympians?age=35', headers: headers
+
+    expect(response).to be_successful
+
+    message = response.body
+    
+    expect(message).to eq("You must pick either 'youngest' or 'oldest'")
+  end
 end

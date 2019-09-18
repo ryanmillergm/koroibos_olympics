@@ -27,7 +27,7 @@ describe "events API" do
     @oe5 = OlympianEvent.create(olympian_id: @olympian5.id, event_id: @event2.id, medal: "Silver")
     @oe6 = OlympianEvent.create(olympian_id: @olympian6.id, event_id: @event2.id, medal: "Gold")
     @oe7 = OlympianEvent.create(olympian_id: @olympian7.id, event_id: @event3.id, medal: "Gold")
-    @oe8 = OlympianEvent.create(olympian_id: @olympian1.id, event_id: @event3.id, medal: "Bronze")
+    @oe8 = OlympianEvent.create(olympian_id: @olympian1.id, event_id: @event3.id, medal: "NA")
   end
 
   it "sends a list of sports and their events" do
@@ -58,5 +58,16 @@ describe "events API" do
     expect(medalists["medalists"].first).to be_a(Hash)
     expect(medalists["event"]).to eq("Gymnastics Men's Individual All-Around")
     expect(medalists["medalists"].first.keys).to eq(attributes)
+  end
+
+  it "sends a message no medalist for event if no medalist" do
+
+    get "/api/v1/events/#{@event8.id}/medalists"
+
+    expect(response).to be_successful
+
+    message = response.body
+
+    expect(message).to eq("There were no medalists for that event.")
   end
 end

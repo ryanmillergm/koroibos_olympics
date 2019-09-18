@@ -4,6 +4,24 @@ class EventsFacade
   end
 
   def medalists(params)
-    Olympian.find_medalists(params[:id])
+    response = {}
+    response["event"] = Event.find(params[:id]).name
+
+    medalists = Olympian.find_medalists(params[:id])
+    if medalists == []
+      return "There were no medalists for that event."
+    else
+      events_medalists = medalists.map do |medalist|
+        response["medalists"] =
+          {
+            "name": medalist.name,
+            "team": medalist.team,
+            "age": medalist.age,
+            "medal": OlympianEvent.get_medal(medalist.id, params[:id])
+          }
+      end
+    end
+    response["medalists"] = events_medalists
+    response
   end
 end
