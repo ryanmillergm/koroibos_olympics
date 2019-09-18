@@ -1,7 +1,7 @@
 # Koroibos Olympics
 This application allows users to get information about the olympics and statistics. All responses are JSON.
 
-The app is deployed at https://koroibos-olympics.herokuapp.com/.
+This app is deployed at https://koroibos-olympics.herokuapp.com/.
 
 This project was part of [Turing School of Software & Design](https://turing.io)'s Back End Engineering program (Mod 4). See the project spec [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/take_home_challenge/prompts/olympic_spec.md). It was completed in 48 hours days by [Ryan Miller](https://github.com/ryanmillergm).
 
