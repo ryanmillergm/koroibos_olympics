@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       resources :events, only: [:index]
     end
   end
+  match "*path", to: "application#four_oh_four'", via: :all
 end
